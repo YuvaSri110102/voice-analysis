@@ -104,6 +104,3 @@ src/
 └── main.tsx             # Entry Point
 ```
 
----
-
-Made with 💜 by Yuvasri
