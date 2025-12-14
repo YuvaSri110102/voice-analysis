@@ -2,6 +2,64 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-    @apply bg-gray-50 text-gray-900;
+@layer base {
+    body {
+        @apply bg-slate-950 text-slate-50 antialiased;
+        background-image:
+            radial-gradient(circle at 50% 0%, rgba(124, 58, 237, 0.15) 0%, transparent 50%),
+            radial-gradient(circle at 80% 50%, rgba(56, 189, 248, 0.1) 0%, transparent 50%);
+    }
+}
+
+@layer components {
+    .glass-card {
+        @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-xl;
+    }
+
+    .glass-header {
+        @apply bg-slate-950/80 backdrop-blur-md border-b border-white/5;
+    }
+
+    .text-gradient {
+        @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-indigo-200 to-indigo-400;
+    }
+
+    .btn-primary {
+        @apply px-4 py-2 bg-bryn-purple hover:bg-violet-500 text-white rounded-lg transition-all duration-300;
+        box-shadow: 0 0 20px rgba(124, 58, 237, 0.3);
+    }
+
+    .btn-primary:hover {
+        box-shadow: 0 0 30px rgba(124, 58, 237, 0.5);
+    }
+
+    .input-field {
+        @apply w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-bryn-purple/50 focus:border-transparent placeholder-white/30 transition-all;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-slate-950;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-slate-800 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-700;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
 }
