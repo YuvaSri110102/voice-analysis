@@ -7,21 +7,22 @@ import {
     ResponsiveContainer,
 } from "recharts";
 
-const data = [
-    { time: "9 AM", duration: 120 },
-    { time: "10 AM", duration: 180 },
-    { time: "11 AM", duration: 150 },
-    { time: "12 PM", duration: 200 },
-];
+type Props = {
+    data: { time: string; duration: number }[];
+    onEdit: () => void;
+};
 
-export default function CallDurationChart() {
+export default function CallDurationChart({ data, onEdit }: Props) {
     return (
         <div>
             <div className="flex items-center justify-between mb-4">
                 <h3 className="text-sm font-medium">
                     Call Duration Analysis
                 </h3>
-                <button className="text-sm text-blue-600 hover:underline">
+                <button
+                    onClick={onEdit}
+                    className="text-sm text-blue-600 hover:underline"
+                >
                     Edit Values
                 </button>
             </div>
